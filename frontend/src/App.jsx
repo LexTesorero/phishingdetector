@@ -3,6 +3,8 @@ import { checkUrl } from "./api";
 import UrlForm from "./components/UrlForm";
 import ResultCard from "./components/ResultCard";
 
+const STREAMLIT_URL = "http://localhost:8501";
+
 export default function App() {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -31,8 +33,16 @@ export default function App() {
   return (
     <div className="min-h-screen">
       <header className="border-b-4 border-brand">
-        <div className="mx-auto max-w-3xl px-6 py-4">
+        <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
           <h1 className="text-xl font-bold text-brand">URL PHISHING DETECTOR</h1>
+          <a
+            href={STREAMLIT_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-muted hover:text-brand"
+          >
+            Dashboard
+          </a>
         </div>
       </header>
 
