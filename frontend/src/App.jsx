@@ -4,6 +4,8 @@ import UrlForm from "./components/UrlForm";
 import ResultCard from "./components/ResultCard";
 
 const STREAMLIT_URL = "http://localhost:8501";
+// Change this in VS Code between "baseline" and "enhanced"
+const MODEL = "enhanced";
 
 export default function App() {
   const [result, setResult] = useState(null);
@@ -21,8 +23,8 @@ export default function App() {
     setLoading(true);
 
     try {
-      const probability = await checkUrl(url.trim());
-      setResult({ url: url.trim(), probability });
+      const probability = await checkUrl(url.trim(), MODEL);
+      setResult({ url: url.trim(), probability, model: MODEL });
     } catch (err) {
       setError(err.message);
     }
@@ -55,7 +57,11 @@ export default function App() {
         <UrlForm onCheck={handleCheck} loading={loading} />
 
         {error && <p className="mt-3 font-medium text-brand">{error}</p>}
-        {result && <ResultCard url={result.url} probability={result.probability} />}
+        {result && (
+          <>
+            <ResultCard url={result.url} probability={result.probability} />
+          </>
+        )}
       </main>
     </div>
   );

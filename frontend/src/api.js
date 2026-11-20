@@ -1,11 +1,11 @@
-export async function checkUrl(url) {
+export async function checkUrl(url, model = "enhanced") {
   let response;
 
   try {
     response = await fetch("/api/predict", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ urls: [url] }),
+      body: JSON.stringify({ urls: [url], model }),
     });
   } catch {
     throw new Error("Could not reach the backend. Is it running on port 8000?");

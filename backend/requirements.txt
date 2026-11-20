@@ -1,3 +1,16 @@
 fastapi
 uvicorn[standard]
+pydantic
 streamlit
+
+tensorflow==2.21.0
+scikit-learn==1.6.1
+xgboost==3.4.1
+numpy==2.4.6
+pandas==2.2.3
+joblib==1.6.0
+
+dnspython
+python-whois
+tldextract
+dill

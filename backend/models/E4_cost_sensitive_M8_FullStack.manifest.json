@@ -1,0 +1,27 @@
+{
+  "run_id": "215ef7e45c0714",
+  "training_repeat": 1,
+  "required_files": [
+    "E4_CharCNN.keras",
+    "E4_CharCNN.vocab.json"
+  ],
+  "feature_order": [
+    "length_url",
+    "qty_hyphen_path",
+    "has_brand_keyword",
+    "subdomain_auth_count",
+    "qty_nameservers",
+    "qty_dot_url",
+    "is_spf_domain",
+    "time_domain_activation"
+  ],
+  "base_order": [
+    "xgb",
+    "rf",
+    "char_lr",
+    "cnn"
+  ],
+  "tensorflow": "2.21.0",
+  "xgboost": "3.4.1",
+  "sklearn": "1.6.1"
+}
